@@ -1,0 +1,17 @@
+class Solution:
+    def binarySearch(self, start, end, numbers, el):
+        if end>=start:
+            mid = (start+end)//2
+            if el == numbers[mid]:
+                return True, mid
+            else:
+                if(el<numbers[mid]):
+                    return self.binarySearch(start, mid-1, numbers, el)
+                else:
+                    return self.binarySearch(mid+1, end, numbers, el)
+        return False, -1
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        for idx, el in enumerate(numbers):
+            found, idx2 = self.binarySearch(idx+1, len(numbers)-1, numbers, target - el)
+            if found:
+                return [idx+1, idx2+1]
