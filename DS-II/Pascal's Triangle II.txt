@@ -1,0 +1,25 @@
+class Solution(object):
+    def getRow(self, rowIndex):
+        triangle=[]
+        triangle.append([1])
+        numRows=rowIndex
+        if numRows==0:
+            return [1]
+        numRows-=1
+        j=0
+        while numRows>=0:
+            listt=[]
+            listt.append(1)
+            temp=rowIndex-numRows
+            i=0
+            while temp>1:
+                listt.append(triangle[j][i]+triangle[j][i+1])
+                i+=1
+                temp-=1
+            listt.append(1)
+            j+=1
+            numRows-=1
+            if numRows==-1:
+                return listt
+            triangle.append(listt)
+			```

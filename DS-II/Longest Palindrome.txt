@@ -1,0 +1,17 @@
+class Solution:
+    def longestPalindrome(self, s: str) -> int:
+        l = []
+        counter = 0
+        flag = False
+        for i in range(len(s)):
+            l.append(s[i])
+        p = collections.Counter(l)
+        for j,k in p.items():
+            if k%2 != 0:
+                flag = True
+                counter += k-1
+            if k%2 == 0:
+                counter += k
+        if flag == True:
+            counter +=1 
+        return counter

@@ -1,0 +1,7 @@
+class Solution(object):
+    def addStrings(self, num1, num2):
+        ans,x=[],0
+        ans.extend((num1,num2))
+        for i in ans:
+            x+=int(i)
+        return str(x)
